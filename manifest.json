@@ -1,20 +1,15 @@
 {
-  "name": "haqutilityII",
-  "short_name": "haqutility",
-  "start_url": "./index.html",
+  "name": "HAQUTILITY II",
+  "short_name": "HAQTools",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#d4af37",
   "icons": [
     {
-      "src": "icons/logo.png",
+      "src": "IMG-20250706-WA0050.jpg",
       "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "icons/logo.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/jpeg"
     }
   ]
 }

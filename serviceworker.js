@@ -1,1 +1,1 @@
-// Final service worker setup
+// Service worker logic here
