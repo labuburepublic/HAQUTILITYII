@@ -1,0 +1,20 @@
+{
+  "name": "haqutilityII",
+  "short_name": "haqutility",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#d4af37",
+  "icons": [
+    {
+      "src": "icons/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
