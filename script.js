@@ -1,1 +1,36 @@
-console.log('HAQUTILITY II ready');
+document.addEventListener("DOMContentLoaded", () => { const tools = document.querySelectorAll(".tool-card"); const searchInput = document.getElementById("search");
+
+const aiResponses = { "hi": "Hey there! 👋", "hello": "Hello! Welcome to HAQUTILITY II!", "how are you": "I'm golden, thanks for asking! 😎", "what is haqutility": "HAQUTILITY II is your no.1 tool app by HAQTECH.", "who created you": "Built with 💛 by HAQTECH", "thanks": "You're welcome! 🫡", "your creator": "Abdulhaq Abdul Ganiy built me with vibes and gold 💫", "do you love me": "Of course, you're my favorite user! 🥰", "can you help me": "Always ready to help. Just type or tap a tool.", "what can you do": "I can help you convert, calculate, analyze, and more! 🛠️", "are you real": "Realer than your phone battery 🔋😉", "how do i use this": "Just tap on any golden tool card you want to use.", "tell me a joke": "Why did JavaScript break up with HTML? Because it couldn’t commit! 😂", "who am i": "You're the boss around here, clearly! 😎", "good morning": "Morning champ! Ready to be productive? ☀️", "good night": "Good night legend. Dream of code & gold ✨", "who is haq": "The genius behind this golden magic ✨", "why are you gold": "Because I was built to shine like royalty 👑", "are you smart": "I'm not just smart. I'm coded brilliance 😎", "favorite tool": "Tough one! But I’d say the Unit Converter hits different 🔥", "i need help": "I got you. Tap a tool or tell me what you want to do. 💡", "hello robot": "Robot? 😆 I'm more like your digital bestie 🤖💛", "do you sleep": "Nah, I’m always awake. 24/7 hustle 💼", "haq tech": "Tech, tools, gold. All in one — HAQTECH 💥" };
+
+const fallbackResponses = [ "Hmm... I don't understand that. 😅", "Try asking something else, boss!", "That's above my pay grade 😂", "Maybe rephrase that?", "I nor sabi that one oo 😩", "Ask me about tools or say 'hi'!" ];
+
+searchInput.addEventListener("input", e => { const val = e.target.value.toLowerCase().trim(); if (val.endsWith("?")) { const reply = aiResponses[val.replace("?", "")] || fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)]; alert("🤖 HAQ AI: " + reply); return; } tools.forEach(tool => { const match = tool.textContent.toLowerCase().includes(val); tool.style.display = match ? "block" : "none"; }); });
+
+tools.forEach(tool => { tool.addEventListener("click", () => { const toolName = tool.querySelector(".tool-title").textContent; switch (toolName) { case "Unit Converter": openUnitConverter(); break; case "Currency Converter": openCurrencyConverter(); break; case "BMI Health Checker": openBMIChecker(); break; case "Word Counter": openWordCounter(); break; case "Password Strength Analyzer": openPasswordAnalyzer(); break; case "Age Calculator": openAgeCalculator(); break; case "Text Converter": openTextConverter(); break; case "Random Code Generator": openRandomCodeGenerator(); break; case "Base Converter": openBaseConverter(); break; case "Time Converter": openTimeConverter(); break; case "To-Do List": openTodoList(); break; case "Markdown Editor": openMarkdownEditor(); break; default: alert("This tool is coming soon!"); } }); });
+
+function openUnitConverter() { const units = { m: 1, cm: 100, mm: 1000, dm: 10, km: 0.001, inch: 39.3701, ft: 3.28084, yd: 1.09361, mile: 0.000621371, acre: 0.000247105, hectare: 0.0001, nm: 1000000000, µm: 1000000, rod: 0.198839, chain: 0.0497097, furlong: 0.00497097, fathom: 0.546807 }; const value = parseFloat(prompt("Enter value in meters:")); if (!isNaN(value)) { let result = Conversions for ${value} meter(s):\n\n; for (const key in units) { result += ${key.toUpperCase()}: ${value * units[key]}\n; } alert(result); } else { alert("Invalid number."); } }
+
+function openCurrencyConverter() { const value = prompt("Enter USD amount:"); const usd = parseFloat(value); if (!isNaN(usd)) { const rates = { NGN: usd * 1500, EUR: usd * 0.9, GBP: usd * 0.78, CFA: usd * 600, JPY: usd * 157, CAD: usd * 1.36, GHS: usd * 13, LBP: usd * 89000, ZAR: usd * 18.5, INR: usd * 83, CNY: usd * 7.2 }; alert(USD ${usd} converts to:\n\n₦${rates.NGN}\n€${rates.EUR}\n£${rates.GBP} (Pounds)\n₣${rates.CFA}\n¥${rates.JPY}\nC$${rates.CAD}\nGH₵${rates.GHS}\nLB£${rates.LBP}\nR${rates.ZAR}\n₹${rates.INR}\n¥${rates.CNY}); } else { alert("Invalid number."); } }
+
+function openBMIChecker() { const weight = parseFloat(prompt("Enter weight in kg:")); const height = parseFloat(prompt("Enter height in meters:")); if (!isNaN(weight) && !isNaN(height) && height > 0) { const bmi = weight / (height * height); let status = ""; if (bmi < 18.5) status = "Underweight"; else if (bmi < 25) status = "Normal weight"; else if (bmi < 30) status = "Overweight"; else status = "Obese"; alert(Your BMI is ${bmi.toFixed(2)} (${status})); } else { alert("Invalid input."); } }
+
+function openWordCounter() { const text = prompt("Enter text to count words:"); const count = text.trim().split(/\s+/).filter(Boolean).length; alert(Word count: ${count}); }
+
+function openPasswordAnalyzer() { const pwd = prompt("Enter password to analyze:"); if (pwd) { let strength = "Weak"; if (pwd.length >= 8 && /[A-Z]/.test(pwd) && /[0-9]/.test(pwd) && /[^A-Za-z0-9]/.test(pwd)) { strength = "Strong"; } else if (pwd.length >= 6) { strength = "Medium"; } alert(Password strength: ${strength}); } }
+
+function openAgeCalculator() { const birth = prompt("Enter your birth year (YYYY):"); const birthYear = parseInt(birth); const now = new Date(); const year = now.getFullYear(); if (!isNaN(birthYear) && birthYear < year) { const age = year - birthYear; const hours = age * 365 * 24; const minutes = hours * 60; const seconds = minutes * 60; alert(You are ${age} years old.\nThat's ${hours} hours\n${minutes} minutes\n${seconds} seconds lived! 🎉); } else { alert("Invalid year."); } }
+
+function openTextConverter() { const text = prompt("Enter text:"); if (text) { const upper = text.toUpperCase(); const lower = text.toLowerCase(); const reverse = text.split("").reverse().join(""); alert(UPPER: ${upper}\n\nlower: ${lower}\n\nReverse: ${reverse}); } }
+
+function openRandomCodeGenerator() { const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$!"; let code = ""; for (let i = 0; i < 10; i++) code += chars[Math.floor(Math.random() * chars.length)]; alert("Random Code: " + code); }
+
+function openBaseConverter() { const num = prompt("Enter number:"); const n = parseInt(num); if (!isNaN(n)) { alert(Decimal: ${n}\nBinary: ${n.toString(2)}\nOctal: ${n.toString(8)}\nHex: ${n.toString(16).toUpperCase()}); } else { alert("Invalid number."); } }
+
+function openTimeConverter() { const hour = parseInt(prompt("Enter hour (0-23) in GMT:")); if (!isNaN(hour) && hour >= 0 && hour <= 23) { const zones = { Lagos: (hour + 1) % 24, London: hour, New York: (hour - 5 + 24) % 24, California: (hour - 7 + 24) % 24, Dubai: (hour + 4) % 24, India: (hour + 5.5) % 24, Tokyo: (hour + 9) % 24, Sydney: (hour + 10) % 24 }; let msg = GMT: ${hour}:00\n\n; for (let city in zones) msg += ${city}: ${zones[city]}:00\n; alert(msg); } else { alert("Invalid hour."); } }
+
+function openTodoList() { alert("To-Do List is coming soon in next version 🚧"); }
+
+function openMarkdownEditor() { alert("Markdown Editor is coming soon! 📝"); } });
+
+
+
