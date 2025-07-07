@@ -1,1 +1,1 @@
-// Service worker logic here
+// Offline serviceworker setup coming soon
